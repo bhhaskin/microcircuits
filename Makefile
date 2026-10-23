@@ -15,9 +15,7 @@ RELEASE_FILES := info.json changelog.txt thumbnail.png LICENSE \
 all: test build
 
 ## build: package the mod as build/<name>_<version>.zip
-build: $(ZIP)
-
-$(ZIP): $(shell find $(RELEASE_FILES) -type f)
+build:
 	rm -rf $(STAGE) $(ZIP)
 	mkdir -p $(STAGE)
 	cp -r $(RELEASE_FILES) $(STAGE)/
