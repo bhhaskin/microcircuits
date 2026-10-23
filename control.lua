@@ -9,6 +9,8 @@ if script.active_mods["factorio-test"] then
         "tests/processor_lifecycle_test",
         "tests/packing_test",
         "tests/comm_display_test",
+        "tests/signal_test",
+        "tests/comm_signal_test",
     }, {
         load_luassert = true,
     })
