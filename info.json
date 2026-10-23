@@ -1,0 +1,16 @@
+{
+  "name": "microcircuits",
+  "version": "0.1.0",
+  "title": "Microcircuits",
+  "author": "Bryan Haskin",
+  "contact": "",
+  "homepage": "",
+  "description": "Miniaturize a whole logic network into a single entity to save space (similar to factorissimo but for signals). Fork of Compakt circuits by Telkine2018.",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.7",
+    "? DisplayPlatesForked",
+    "flib >= 0.17.0",
+    "? even-pickier-dollies"
+  ]
+}

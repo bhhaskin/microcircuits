@@ -1,0 +1,16 @@
+{
+  "name": "microcircuits-dev",
+  "private": true,
+  "description": "Development tooling for the Microcircuits Factorio mod",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:game",
+    "test:game": "dev/test-game.sh",
+    "test:unit": "docker run --rm -v \"$PWD\":/data -w /data ghcr.io/lunarmodules/busted:v2.2.0"
+  },
+  "devDependencies": {
+    "factorio-test-cli": "3.8.0"
+  },
+  "factorio-test": {
+    "modPath": "."
+  }
+}

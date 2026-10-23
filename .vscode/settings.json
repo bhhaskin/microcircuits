@@ -1,0 +1,15 @@
+{
+    "Lua.diagnostics.globals": [
+        "serpent",
+        "__Profiler",
+        "storage",
+        "log",
+        "data",
+        "procinfos",
+        "require"
+    ],
+    "Lua.diagnostics.disable": [
+        "missing-fields"
+    ],
+    "Lua.workspace.checkThirdParty": false
+}

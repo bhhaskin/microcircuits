@@ -1,0 +1,33 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 23. 10. 2026
+  Info:
+    - First release of Microcircuits, a fork of Compakt circuits 2.1.0 by Telkine2018.
+    - Not save-compatible with Compakt circuits: all internal names now use the "microcircuits" prefix.
+  Changes:
+    - Chat commands are now /microcircuits_pack, /microcircuits_purge, /microcircuits_stats and so on.
+    - The remote interface for registering combinators is now "microcircuits".
+    - Editor surfaces are now named "microcircuits_proc_<n>", so the purge command no longer touches other mods' surfaces.
+    - Several players can edit the same processor; each one returns to where they entered.
+    - The "entity-per-tick" setting now applies to display updates.
+  Bugfixes:
+    - Fixed crashes when packing a circuit that is wired to an entity which cannot be packed.
+    - Fixed a crash when packing a small lamp from an older or hand-made blueprint.
+    - Fixed the comm panel crashing on channels with only red or only green wires.
+    - Fixed a crash when a second force used comm channels.
+    - Fixed comm inputs connecting red and green the wrong way round.
+    - Fixed players being left on a deleted surface when the processor they were editing was removed or packed.
+    - Fixed /microcircuits_pack packing processors that players were editing.
+    - Fixed item duplication when deconstructing a processor on a space platform.
+    - Fixed placing a processor item with stored circuits losing its contents.
+    - Fixed wires restored by undo becoming invisible and impossible to remove.
+    - Fixed constant combinator sections losing their on/off state and multiplier when packed.
+    - Fixed lamps losing their color and always-on setting when packed.
+    - Fixed unpacked circuits sometimes being placed one tile off.
+    - Fixed the display color drop-down picking the wrong color.
+    - Fixed custom colors losing their blue component.
+    - Fixed closing the input dialog without saving still keeping the changes.
+    - Fixed alt-mode icons piling up on inputs and displays.
+    - Fixed signal quality being lost on inputs and filters.
+    - Fixed the hidden editor pole and radar being minable for free items.
+    - Fixed many smaller crashes from missing validity checks.
