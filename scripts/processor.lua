@@ -612,6 +612,19 @@ local function on_player_mined_entity(ev)
     on_mined(ev)
 end
 
+---A packed top-level processor opens its settings dialog; anything else
+---(unpacked, nested, or packed without user-defined inputs) enters the editor.
+---@param player LuaPlayer
+---@param processor LuaEntity
+local function open_processor(player, processor)
+    local procinfo = build.get_procinfo(processor, false)
+    if procinfo and procinfo.is_packed and build.is_toplevel(procinfo) and
+        input.create_property_table(player, procinfo) then
+        return
+    end
+    editor.edit_selected(player, processor)
+end
+
 ---@param event EventData.on_gui_opened
 local function on_gui_open_processor_panel(event)
     local player = game.players[event.player_index]
@@ -623,7 +636,7 @@ local function on_gui_open_processor_panel(event)
         local processor = find_processor(entity)
         if not processor then return end
 
-        editor.edit_selected(player, processor)
+        open_processor(player, processor)
     elseif entity.name == iopoint_name then
         player.opened = nil
     end
@@ -1490,7 +1503,7 @@ script.on_event(prefix .. "-click",
         local selected = player.selected
         if selected and string.find(selected.name, processor_pattern) and
             player.is_cursor_empty() then
-            editor.edit_selected(player, selected)
+            open_processor(player, selected)
         end
     end)
 
@@ -1502,7 +1515,11 @@ script.on_event(prefix .. "-control-click",
         if selected and string.find(selected.name, processor_pattern) and
             player.is_cursor_empty() then
             local procinfo = build.get_procinfo(selected, false)
-            if procinfo and build.is_toplevel(procinfo) then
+            if procinfo and procinfo.is_packed then
+                -- Plain click opens a packed processor's settings, so
+                -- control-click is the way into its editor
+                editor.edit_selected(player, selected)
+            elseif procinfo and build.is_toplevel(procinfo) then
                 input.create_property_table(player, procinfo)
             end
         end

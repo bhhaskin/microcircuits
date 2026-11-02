@@ -824,6 +824,7 @@ end
 
 ---@param player LuaPlayer
 ---@param procinfo ProcInfo
+---@return boolean @ true if the dialog was opened
 function input.create_property_table(player, procinfo)
     input.close_property_table(player)
 
@@ -834,7 +835,7 @@ function input.create_property_table(player, procinfo)
         input.normalize(input_list, "")
     end
 
-    if not input_list or #input_list == 0 then return end
+    if not input_list or #input_list == 0 then return false end
 
     local frame = player.gui.screen.add {
         type = "frame",
@@ -968,6 +969,7 @@ function input.create_property_table(player, procinfo)
     frame.force_auto_center()
 
     player.opened = frame
+    return true
 end
 
 ---@param e any

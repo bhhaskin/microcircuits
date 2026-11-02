@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 01. 11. 2026
+  Changes:
+    - Clicking a packed processor now opens its settings dialog. Ctrl + click enters its editor.
+    - A packed processor with no input components, or one nested inside another processor, still enters the editor on click.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 23. 10. 2026
   Info:

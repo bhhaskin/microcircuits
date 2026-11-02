@@ -24,8 +24,10 @@ Microcircuits is a fork of [Compakt circuits](https://github.com/Telkine2018/com
 
 | Action | Default |
 |---|---|
-| Enter a processor's editor | Click the processor |
-| Open the processor's settings | Ctrl + click the processor |
+| Enter a processor's editor | Click the processor (Ctrl + click if it is packed) |
+| Open the processor's settings | Ctrl + click the processor (click if it is packed) |
+
+A packed processor with no input components has no settings dialog, so clicking it enters the editor.
 
 ## Commands
 
